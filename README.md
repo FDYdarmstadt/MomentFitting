@@ -14,4 +14,4 @@ integration over the zero iso-contour and the positive sub-volume (w.r.t.
 the level set function), respectively.
 
 If you have any questions or comments, please contact me via
-mueller@fdy.tu-darmstad.de
+mueller@fdy.tu-darmstadt.de
