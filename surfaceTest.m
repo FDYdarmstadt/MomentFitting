@@ -59,4 +59,8 @@ function testCircleSection(~)
     
     thresholds = [ 0.3 0.07 0.04 0.004 0.002 ];
     assert(all(errors < thresholds));
+    
+    % For reference: Errors obtained with divergence-free basis based on an
+    % orthonormal basis, Gauss nodes and complete orthogonal factorization:
+    % optimizedResults = [ 0.01091 0.00359 0.00065 0.00061 0.00025 ];
 end

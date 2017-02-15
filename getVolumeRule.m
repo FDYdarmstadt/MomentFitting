@@ -1,12 +1,17 @@
-function [ nodes, weights ] = getVolumeRule(phi, gradPhi, order)
+function [ nodes, weights ] = getVolumeRule(phi, gradPhi, order, safetyFactor)
 %GETVOLUMERULE Constructs a volume quadrature rule
 %   Constructs a quadrature rule to integrate over the sub-domain of the
 %   cell the cell [-1,1]x[-1,1] where the level set function 'phi' is
 %   positive. The rule is constructed using moments up to the specified
 %   'order'.
-
+    
     boundarySegments = getBoundarySegments(phi);
-    [A, b, nodes] = assembleVolumeSystem(boundarySegments, gradPhi, order);
+    
+    if (exist('safetyFactor', 'var'))
+        [A, b, nodes] = assembleVolumeSystem(boundarySegments, gradPhi, order, safetyFactor);
+    else
+        [A, b, nodes] = assembleVolumeSystem(boundarySegments, gradPhi, order);
+    end
     
     % Solves the under-determined system
     % Note that 'A' may be severely ill-conditioned for higher orders and

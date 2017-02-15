@@ -1,4 +1,4 @@
-function [ A, b, X ] = assembleSurfaceSystem(boundarySegments, gradPhi, order)
+function [ A, b, X ] = assembleSurfaceSystem(boundarySegments, gradPhi, order, safetyFactor)
 %ASSEMBLESURFACESYSTEM Constructs the moment-fitting system for the volume
 %case.
 %   Constructs the matrix 'A' (M rows, N columns), the vector 'b' (M rows)
@@ -11,7 +11,9 @@ function [ A, b, X ] = assembleSurfaceSystem(boundarySegments, gradPhi, order)
     M = size(divBasis, 2);
     
     % Select nodes
-    safetyFactor = 1.6;
+    if (~exist('safetyFactor', 'var'))
+        safetyFactor = 1.6;
+    end
     X = getNodes(ceil(sqrt(safetyFactor * M)));
     N = size(X, 1);
     

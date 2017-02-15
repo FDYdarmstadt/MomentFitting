@@ -52,13 +52,22 @@ function testQuarterCircle(~)
     exactVolume = 3.34088097749782;
     
     errors = zeros(1, 4);
-    for i=1:4
+    for i=1:3
         [~, w] = getVolumeRule(phi, gradPhi, i);
         errors(i) = abs(sum(w) - exactVolume);
     end
     
-    % What about the last value?
-    thresholds = [ 0.17 0.06 0.003 0.0004 ];
+    % Order 4 requires higher safetyFactor (for equidistant nodes)
+    [~, w] = getVolumeRule(phi, gradPhi, i, 2);
+    errors(i) = abs(sum(w) - exactVolume);
     
+    thresholds = [ 0.17 0.06 0.003 0.002 ];
     assert(all(errors < thresholds));
+    
+    % For reference: Errors obtained with an orthonormal basis, a
+    % divergence-free basis based on this orthonormal basis, Gauss nodes
+    % and complete orthogonal factorization:
+    % optimizedResults = [ 0.00520 0.00114 0.00040 0.00016 ];
+    % Note that these results where obtained _without_ using the increased
+    % safety factor used in line 62
 end
