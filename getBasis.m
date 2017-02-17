@@ -9,46 +9,62 @@ function [ basis, basisAntiderivative ] = getBasis(order)
 %   matrix 'basisAntiderivative' (2 rows, M columns). For the latter, the
 %   column index corresponds to the spatial coordinate.
     basis = {
+        % p = 0
         @(x,y)1
-        %
+        % p = 1
         @(x,y)y
         @(x,y)x
-        %
+        % p = 2
         @(x,y)y^2
         @(x,y)x*y
         @(x,y)x^2
-        %
+        % p = 3
         @(x,y)y^3
         @(x,y)x*y^2
         @(x,y)x^2*y
         @(x,y)x^3
-        %
+        % p = 4
         @(x,y)y^4
         @(x,y)x*y^3
         @(x,y)x^2*y^2
         @(x,y)x^3*y
         @(x,y)x^4
+        % p = 5
+        @(x,y)y^5
+        @(x,y)x*y^4
+        @(x,y)x^2*y^3
+        @(x,y)x^3*y^2
+        @(x,y)x^4*y
+        @(x,y)x^5
     }';
     basisAntiderivative = {
+        % p = 0
         @(x,y)1/2*x         @(x,y)1/2*y
-        %
+        % p = 1
         @(x,y)1/2*x*y       @(x,y)1/4*y^2
         @(x,y)1/4*x^2       @(x,y)1/2*x*y
-        %
+        % p = 2
         @(x,y)1/2*x*y^2     @(x,y)1/6*y^3
         @(x,y)1/2*x^2*y     @(x,y)1/2*x*y^2
         @(x,y)1/6*x^3       @(x,y)1/2*x^2*y
-        %
+        % p = 3
         @(x,y)1/2*x*y^3     @(x,y)1/8*y^4
         @(x,y)1/4*x^2*y^2   @(x,y)1/6*x*y^3
         @(x,y)1/6*x^3*y     @(x,y)1/4*x^2*y^2
         @(x,y)1/8*x^4       @(x,y)1/2*x^3*y
-        %
+        % p = 4
         @(x,y)1/2*x*y^4     @(x,y)1/10*y^5
         @(x,y)1/4*x^2*y^3   @(x,y)1/8*x*y^4
         @(x,y)1/6*x^3*y^2   @(x,y)1/6*x^2*y^3
         @(x,y)1/8*x^4*y     @(x,y)1/4*x^3*y^2
         @(x,y)1/10*x^5      @(x,y)1/2*x^4*y
+        % p = 5
+        @(x,y)1/2*x*y^5     @(x,y)1/12*y^6
+        @(x,y)1/4*x^2*y^4   @(x,y)1/10*x*y^5
+        @(x,y)1/6*x^3*y^3   @(x,y)1/8*x^2*y^4
+        @(x,y)1/8*x^4*y^2   @(x,y)1/6*x^3*y^3
+        @(x,y)1/10*x^5*y    @(x,y)1/4*x^4*y^2
+        @(x,y)1/12*x^6      @(x,y)1/2*x^5*y
     }';
     
     M = (order + 1) * (order + 2) / 2;
