@@ -47,7 +47,7 @@ function testStraightDiagonal(~)
 end
 
 function testQuarterCircle(~)
-    phi = @(x,y)(x-1.5)^2 + (y-1.5)^2 - 5/2;
+    phi = @(x,y)(x-1.5).^2 + (y-1.5).^2 - 5/2;
     gradPhi = {@(x,y)2*(x-1.5) @(x,y)2*(y-1.5)};
     exactVolume = 3.34088097749782;
     
