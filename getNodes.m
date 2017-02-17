@@ -2,8 +2,7 @@ function [ X ] = getNodes(nodesPerDirection)
 %GETNODES Nodes for a tensor product quadrate rule
 %   Creates a set of nodes from the tensor product of one-dimensional node
 %   distributions with 'nodesPerDirection' nodes, i.e. the result contains
-%   'nodesPerDirection'^2 nodes. For simplicity, equidistant nodes are used
-%   here, even though Gauss nodes typically deliver better results.
+%   'nodesPerDirection'^2 nodes. Currently, Gauss-Legendre nodes are used.
 
     %nodes1D = linspace(-1, 1, nodesPerDirection);
     nodes1D = gaussNodes(nodesPerDirection);

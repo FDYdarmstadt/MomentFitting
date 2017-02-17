@@ -1,4 +1,9 @@
 function [ nodes ] = gaussNodes(noOfNodes)
+%GAUSSNODES Gauss nodes within [-1, 1]
+%   Creates the nodes for a Gauss-Legendre quadrature rules using the given
+%   'noOfNodes'. Currently, up to ten nodes are supported (i.e., quadrature
+%   order 19).
+
    switch noOfNodes
        case 1
            nodes = 0;
