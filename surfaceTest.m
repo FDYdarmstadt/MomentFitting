@@ -57,7 +57,7 @@ function testCircleSection(~)
         errors(i) = abs(sum(w) - exactLength);
     end
     
-    thresholds = [ 0.3 0.07 0.04 0.004 0.002 ];
+    thresholds = [ 0.2 0.06 0.02 0.005 0.0002 ];
     assert(all(errors < thresholds));
     
     % For reference: Errors obtained with divergence-free basis based on an

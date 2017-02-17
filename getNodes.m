@@ -5,7 +5,8 @@ function [ X ] = getNodes(nodesPerDirection)
 %   'nodesPerDirection'^2 nodes. For simplicity, equidistant nodes are used
 %   here, even though Gauss nodes typically deliver better results.
 
-    nodes1D = linspace(-1, 1, nodesPerDirection);
+    %nodes1D = linspace(-1, 1, nodesPerDirection);
+    nodes1D = gaussNodes(nodesPerDirection);
     N = nodesPerDirection^2;
     
     k = 1;

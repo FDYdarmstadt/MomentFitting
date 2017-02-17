@@ -61,7 +61,7 @@ function testQuarterCircle(~)
     [~, w] = getVolumeRule(phi, gradPhi, i, 2);
     errors(i) = abs(sum(w) - exactVolume);
     
-    thresholds = [ 0.17 0.06 0.003 0.002 ];
+    thresholds = [ 0.2 0.03 0.006 0.0004 ];
     assert(all(errors < thresholds));
     
     % For reference: Errors obtained with an orthonormal basis, a
