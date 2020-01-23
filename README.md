@@ -17,4 +17,4 @@ Matlab test runner 'runtests' to execute the basic verification tests in
 'surfaceTest.m' and 'volumeTest.m', which also serve as usage examples.
 
 If you have any questions or comments, please contact me via
-mueller@fdy.tu-darmstadt.de
+mueller.fdy@gmail.com
